@@ -6,12 +6,32 @@
     <title>Quiz Culture du Monde</title>
 
     <link rel="stylesheet" href="style.css">
-    <link type="module" src="game.js"></script>
-    <link type="module" src="questions.js"></script>
+    <script type="module" src="game.js"></script>
+    <script type="module" src="questions.js"></script>
 
 
 </head>
 <body>
+
+    <div id="quiz-container">
+        <!-- Section pour la question -->
+            <div class="question">
+                Dans quel pays se trouve la tour Eiffel rouge et blanche ?
+            </div>
+            <!-- Section pour les options -->
+            <div class="options">
+              <button>New-York</button>
+              <button>Singapour</button>
+              <button>Japon</button>
+              <button>Los Angeles</button>
+            </div>
+            
+            <!-- Prévois déjà le design du bouton "suivant" pour passer à la prochaine question -->
+             <div class="button-container">
+              <button id="next-button">Suivant</button>
+            </div>
+        </div>
+
     
 </body>
 </html>
