@@ -1,26 +1,62 @@
+.inter {
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+  }
+
 #quiz-container {
-display: flex;
+display: flex; /* pourquoi flex ? */
 flex-direction: column;
 justify-content: space-between;
-height: 200px;
-border: solid black;
-width: 400px;
+height: 300px;
+border: 3px solid black;
+border-radius: 5px ;
+width: 450px;
 align-items: center;
 margin: 0 auto;
-background-color: beige;
+background-color: rgb(255, 255, 255);
+font-family: "Inter", serif;
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-
 body {
-background: linear-gradient(to right, #005aa7, #fffde4);
+    background: linear-gradient(to right, #005aa7, #fffde4);
+    
+    }
 
-
+.question {
+padding: 10% 10% 1em;
+text-align: center;
+font-weight: 700;
 }
 
 .options {
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-height: 10px;
-
+padding: 0% 10%;
 }
+
+.btn {
+/*display: flex;
+flex-direction: column;
+justify-content: space-between;*/
+font-family: "Inter", serif;
+background-color: #ffffff; 
+color: black;
+border: 3px solid gray;
+border-radius: 20px ;
+padding: 0.2em 4em 0.2em 1em;
+margin-bottom: 0.5em;
+text-align: left;
+text-decoration: none;
+display: block 1em; /* j'ai ajouté 1em, cela a donné le résultat voulu (bouton toute largeur), mais je ne sais pas pourquoi ! */
+font-size: 1em;
+width: 100%; 
+transition-duration: 0.4s;
+}
+
+.btn:hover {
+    background-color: #b08dc2; 
+    border: 2px solid #5a0187;
+    opacity: 0.5;
+    color: #5a0187;
+  }
