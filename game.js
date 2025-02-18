@@ -58,7 +58,7 @@ restartGame.addEventListener('click', () => {
     // TODO Réinitialiser l'index
     i = 0;
     // TODO Cacher le bouton Rejouer et afficher le bouton Suivant
-    nextQuestion.style.display = 'inline-block';
+    boutonSuivant.style.display = 'inline-block';
     restartGame.style.display = 'none'; 
     // TODO Recharger la première question
     loadQuestion();
