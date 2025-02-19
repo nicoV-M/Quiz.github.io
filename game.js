@@ -1,15 +1,13 @@
 import { quizVoyage } from './questions.js'; // Import des questions
 
 // Variables pour suivre l'état du quiz
-let progressionQuiz = 0; // Commence à la première question
-console.log(progressionQuiz)
+let i = 0;
 
 // Sélection des éléments HTML
 const contenuQuestion = document.querySelector('#question-text');
 const contenuOptions = document.querySelector('#options-container');
 const boutonSuivant = document.querySelector('#next-button');
 const restartGame = document.querySelector('#replay-button');
-let i = 0
 
 // Fonction pour afficher une question basée sur l'index actuel
 function loadQuestion() {
@@ -31,6 +29,8 @@ function loadQuestion() {
     newButton.classList.add('btn');
     contenuOptions.appendChild(newButton);
   });
+
+  CheckAnswer();
 }
 
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
@@ -63,3 +63,37 @@ restartGame.addEventListener('click', () => {
     // TODO Recharger la première question
     loadQuestion();
   });
+
+//Fonction Check Answer
+  // function envoi réponse
+  // click
+  // retour de la réponse donnée questions.options
+    // console.log(retour réponse)
+  // si cette réponse = questions.correct_answer
+    // console.log(questions.correct_answer)
+  // alors on peut cliquer sur suivant
+  // et le bouton change de couleur pour du vert
+
+  // sinon, le bouton devient rouge
+  // le bouton attaché à la bonne réponse devient vert
+  // et le bouton suivant reste non cliquable
+
+  function CheckAnswer() {
+    const buttons = document.querySelectorAll('.btn'); // Sélectionner tous les boutons générés
+  
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const questionActuelle = quizVoyage.questions[i]; // Récupérer la question actuelle
+        const correctAnswer = questionActuelle.correct_answer
+        if (button.textContent === correctAnswer) {
+          console.log("Bonne réponse");
+          button.style.backgroundColor = "#008000";
+        } else {
+          console.log("Mauvaise réponse");
+        }
+  
+        console.log("Réponse choisie :", button.textContent);
+        console.log("Bonne réponse :", questionActuelle.correct_answer);
+      });
+    });
+  }
