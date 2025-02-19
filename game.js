@@ -1,6 +1,7 @@
 import { quizVoyage } from './questions.js'; // Import des questions
 // Variables pour suivre l'état du quiz
 let i = 0;
+let score = 0
 // Sélection des éléments HTML
 const contenuQuestion = document.querySelector('#question-text');
 const contenuOptions = document.querySelector('#options-container');
@@ -35,8 +36,9 @@ boutonSuivant.addEventListener('click', () => {
     loadQuestion();
   } else {
     // Si plus de questions, indiquer la fin du quiz
-    contenuQuestion.innerText = 'test terminé';
-    contenuOptions.innerHTML = ''; // Effacer les options
+    contenuQuestion.innerText = 'All done !';
+    
+    contenuOptions.innerHTML = 'Tu as obtenu ' + score + ' sur ' + quizVoyage.questions.length; // Effacer les options
     boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
     restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame
   }
@@ -47,13 +49,15 @@ loadQuestion();
 restartGame.addEventListener('click', () => {
     // TODO Réinitialiser l'index
     i = 0;
+    score = 0
     // TODO Cacher le bouton Rejouer et afficher le bouton Suivant
     boutonSuivant.style.display = 'inline-block';
     restartGame.style.display = 'none';
-    // TODO Recharger la première question
-    loadQuestion();
+  
+    loadQuestion();   // Recharger la première question
   });
-//Fonction Check Answer
+
+  //Fonction Check Answer
   // function envoi réponse
   // click
   // retour de la réponse donnée questions.options
@@ -65,6 +69,7 @@ restartGame.addEventListener('click', () => {
   // sinon, le bouton devient rouge
   // le bouton attaché à la bonne réponse devient vert
   // et le bouton suivant reste non cliquable
+  
   function CheckAnswer() {
     const buttons = document.querySelectorAll('.btn'); // Sélectionner tous les boutons générés
     buttons.forEach(button => {
@@ -74,11 +79,15 @@ restartGame.addEventListener('click', () => {
         buttons.forEach(btn => btn.setAttribute('disabled' , ''))
         if (button.textContent === correctAnswer) {
           button.style.backgroundColor = "#008000";
+          score++; 
         } else {
           button.style.backgroundColor = "#FF0000";
         }
+        console.log("score", score, "sur", quizVoyage.questions.length);
         console.log("Réponse choisie :", button.textContent);
         console.log("Bonne réponse :", questionActuelle.correct_answer);
       });
     });
   }
+
+  console.log(score, "sur", quizVoyage.questions.length);
