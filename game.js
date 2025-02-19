@@ -12,7 +12,6 @@ function loadQuestion() {
   contenuOptions.innerHTML = '';
   // Récupérer la question actuelle
   const questionActuelle = quizVoyage.questions[i];
-  console.log(questionActuelle);
   // Injecter la question dans le HTML
  contenuQuestion.innerText = questionActuelle.text;
   // Injecter les options dans le HTML
@@ -67,11 +66,13 @@ restartGame.addEventListener('click', () => {
   // et le bouton suivant reste non cliquable
   function CheckAnswer() {
     const buttons = document.querySelectorAll('.btn'); // Sélectionner tous les boutons générés
+    boutonSuivant.setAttribute('disabled', '')
     buttons.forEach(button => {
       button.addEventListener('click', () => {
         const questionActuelle = quizVoyage.questions[i]; // Récupérer la question actuelle
         const correctAnswer = questionActuelle.correct_answer
         buttons.forEach(btn => btn.setAttribute('disabled' , ''))
+        boutonSuivant.removeAttribute('disabled')
         if (button.textContent === correctAnswer) {
           button.style.backgroundColor = "#008000";
         } else {
