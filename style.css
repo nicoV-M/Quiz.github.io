@@ -1,55 +1,54 @@
-.inter {
+*{
     font-family: "Inter", serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
-  }
+}
 
 body {
   /* background: linear-gradient(to right, #005aa7, #fffde4); */
   background-color: #ede5ff;
   margin : 0 auto;
   padding: 10% ;
-    }
+}
+
 
 #quiz-main {
     display: flex; /* pourquoi flex ? */
     flex-direction: column;
-    
-
     width: 450px;
     margin: 0 auto;
-    }
+}
+
+#progress-barre{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
 #quiz-container {
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
-
     height: 220px;
     width: 360px;
     border: 3px solid black;
     border-radius: 5px ;
     padding: 10% 10% 1em;
-   
     background-color: rgb(255, 255, 255);
-    font-family: "Inter", serif;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    }
+}
 
-    #question-text {
-        padding-bottom: 1em;
-        display: block;
-        text-align: center;
-        font-weight: 700;
-        height: 2.5em;
-        }
+#question-text {
+    padding-bottom: 1em;
+    display: block;
+    text-align: center;
+    font-weight: 700;
+    height: 2.5em;
+}
 
     .btn {
         /*display: flex;
         flex-direction: column;
         justify-content: space-between;*/
-        font-family: "Inter", serif;
+        /* font-family: "Inter", serif; */
         background-color: #ffffff; 
         color: black;
         border: 3px solid gray;
@@ -92,28 +91,27 @@ body {
     justify-items: center;
 } */
 
-    .button-container > button {
-        font-family: "Inter", serif;
-        font-weight: 500;
-        background-color: #ffffff; 
-        color: #b08dc2;
-        border: 3px solid #b08dc2;
-        border-radius: 20px ;
-        padding: 0.2em 1.5em 0.2em 1em;
-        margin-bottom: 0.5em;
-        text-align: left;
-        text-decoration: none;
-        display: block; 
-        font-size: 1em;
-        width: 100%; 
-        transition-duration: 0.4s;
+.button-container > button {
+    font-weight: 500;
+    background-color: #ffffff; 
+    color: #b08dc2;
+    border: 3px solid #b08dc2;
+    border-radius: 20px ;
+    padding: 0.2em 1.5em 0.2em 1em;
+    margin-bottom: 0.5em;
+    text-align: left;
+    text-decoration: none;
+    display: block; 
+    font-size: 1em;
+    width: 100%; 
+    transition-duration: 0.4s;
     }
 
-    .button-container > button:hover {
-        background-color: #b08dc2; 
-        font-weight: 700;
-        border: 2px solid #5a0187;
-        opacity: 0.5;
-        color: #5a0187;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    }
+.button-container > button:hover {
+    background-color: #b08dc2; 
+    font-weight: 700;
+    border: 2px solid #5a0187;
+    opacity: 0.5;
+    color: #5a0187;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
