@@ -22,24 +22,6 @@ body {
     gap: 20px;
 }
 
-/* Personnaliser la couleur de la progression dans les navigateurs WebKit (Chrome, Safari, etc.) */
-#barre::-webkit-progress-bar {
-    background-color: #e0e0e0; /* Fond gris clair pour la barre */
-    border-radius: 10px; /* Bord arrondi */
-  }
-  
-  /* Personnaliser la couleur de la progression dans WebKit */
-  #barre::-webkit-progress-value {
-    background-color: #4caf50; /* Vert pour la progression */
-    border-radius: 10px; /* Bord arrondi */
-  }
-  
-  /* Personnaliser la progression pour Firefox */
-  #barre::-moz-progress-bar {
-    background-color: #4caf50; /* Vert pour la progression */
-    border-radius: 10px; /* Bord arrondi */
-  }
-
 #quiz-container {
     display: flex;
     flex-direction: column;
