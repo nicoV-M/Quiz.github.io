@@ -34,6 +34,20 @@ function loadQuestion() {
   CheckAnswer();
 }
 
+// Ajouter un temps imparti pour répondre
+function timer() {
+  // const element = document.getElementById("myTimer");   
+  // let id = 
+  setInterval(timeIsUp, 30000)
+  function timeIsUp() {
+    contenuQuestion.innerText = '';
+    contenuOptions.innerHTML = '';
+    contenuFinal.innerHTML = `Oups, temps écoulé ! <br> Tu veux recommencer ?`
+    boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
+    restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame
+  }
+  }
+
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
 boutonSuivant.addEventListener('click', () => {
   // Mise à jour de la barre de progression
@@ -49,9 +63,8 @@ boutonSuivant.addEventListener('click', () => {
 
   if (i < quizVoyage.questions.length) {
     loadQuestion(); // Afficher la prochaine question
-  } else {
-
-    // Fin du quiz
+    timer()
+  } else {          // Fin du quiz
     contenuQuestion.innerText = '';
     contenuOptions.innerHTML = '';
     contenuFinal.innerHTML = `All done ! <br>
