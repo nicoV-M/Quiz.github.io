@@ -1,4 +1,6 @@
 import { quizVoyage } from './questions.js'; // Import des questions
+
+// Variables pour suivre l'état du quiz
 let i = 0;
 let score = 0;
 let numberProgress = 1;
@@ -7,6 +9,7 @@ const totalQuestions = quizVoyage.questions.length; // Nombre total de questions
 // Sélection des éléments HTML
 const contenuQuestion = document.querySelector('#question-text');
 const contenuOptions = document.querySelector('#options-container');
+const contenuFinal = document.querySelector('#message-final')
 const boutonSuivant = document.querySelector('#next-button');
 const restartGame = document.querySelector('#replay-button');
 const progressBarre = document.querySelector('#barre');
@@ -47,11 +50,16 @@ boutonSuivant.addEventListener('click', () => {
   if (i < quizVoyage.questions.length) {
     loadQuestion(); // Afficher la prochaine question
   } else {
+
     // Fin du quiz
-    contenuQuestion.innerText = 'All done !';
-    contenuOptions.innerHTML = `Tu as obtenu ${score} sur ${totalQuestions}`;
-    boutonSuivant.style.display = 'none';
-    restartGame.style.display = 'inline-block';
+    contenuQuestion.innerText = '';
+    contenuOptions.innerHTML = '';
+    contenuFinal.innerHTML = `All done ! 
+    Tu as obtenu ${score} sur ${quizVoyage.questions.length} 
+    ${commentaireScore()}`
+    boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
+    restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame  
+
   }
 });
 
@@ -60,6 +68,7 @@ loadQuestion();
 
 // Fonction pour réinitialiser le quiz
 restartGame.addEventListener('click', () => {
+
   i = 0;
   score = 0;
   progressBarre.value = 0;
@@ -100,5 +109,28 @@ function CheckAnswer() {
     });
   });
 }
+
+// Afficher une réponse différente selon le score obtenu
+  function commentaireScore() {
+  let text;
+  switch(score){
+    case 0 :
+      text = 'Aïe ! On dirait que ce sujet ne t’inspire vraiment pas… 🌀';
+      break;
+    case 1 :
+    case 2 :
+    case 3 :
+      text = 'Ce n’est pas mal ! Mais tu peux mieux faire 💪!';
+      break;
+    case 4 :
+    case 5 :
+    case 6 :
+      text = 'Bravo, on voit que tu maîtrises ce thème 😎 !';
+      break;
+    case 7 :
+      text = 'Incroyable ! Tu es incollable sur le sujet 🎊!';
+  }
+  return text
+  }
 
 console.log(score, "sur", quizVoyage.questions.length);
