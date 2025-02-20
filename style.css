@@ -6,7 +6,8 @@
   }
 
 body {
-  background: linear-gradient(to right, #005aa7, #fffde4);
+  /* background: linear-gradient(to right, #005aa7, #fffde4); */
+  background-color: #ede5ff;
   margin : 0 auto;
   padding: 10% ;
     }
@@ -44,30 +45,38 @@ body {
         height: 2.5em;
         }
 
-        .btn {
-            /*display: flex;
-            flex-direction: column;
-            justify-content: space-between;*/
-            font-family: "Inter", serif;
-            background-color: #ffffff; 
-            color: black;
-            border: 3px solid gray;
-            border-radius: 20px ;
-            padding: 0.2em 4em 0.2em 1em;
-            margin-bottom: 0.5em;
-            text-align: left;
-            text-decoration: none;
-            display: block 1em; /* j'ai ajouté 1em, cela a donné le résultat voulu (bouton toute largeur), mais je ne sais pas pourquoi ! */
-            font-size: 1em;
-            width: 100%; 
-            transition-duration: 0.4s;
-        }
+    .btn {
+        /*display: flex;
+        flex-direction: column;
+        justify-content: space-between;*/
+        font-family: "Inter", serif;
+        background-color: #ffffff; 
+        color: black;
+        border: 3px solid gray;
+        border-radius: 20px ;
+        padding: 0.2em 4em 0.2em 1em;
+        margin-bottom: 0.5em;
+        text-align: left;
+        text-decoration: none;
+        display: block 1em; /* j'ai ajouté 1em, cela a donné le résultat voulu (bouton toute largeur), mais je ne sais pas pourquoi ! */
+        font-size: 1em;
+        width: 100%; 
+        transition-duration: 0.4s;
+    }
 
-        .btn:hover {
-            background-color: #b08dc2; 
-            border: 2px solid #5a0187;
-            opacity: 0.5;
-            color: #5a0187;
+    .btn:hover {
+        background-color: #b08dc2; 
+        border: 2px solid #5a0187;
+        opacity: 0.5;
+        color: #5a0187;
+    }
+
+    #message-final {
+        padding-bottom: 1em;
+        display: block;
+        text-align: center;
+        font-weight: 700;
+        height: 2.5em;
         }
 
 #quiz-foot {

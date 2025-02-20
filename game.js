@@ -1,10 +1,12 @@
 import { quizVoyage } from './questions.js'; // Import des questions
+
 // Variables pour suivre l'état du quiz
 let i = 0;
 let score = 0
 // Sélection des éléments HTML
 const contenuQuestion = document.querySelector('#question-text');
 const contenuOptions = document.querySelector('#options-container');
+const contenuFinal = document.querySelector('#message-final')
 const boutonSuivant = document.querySelector('#next-button');
 const restartGame = document.querySelector('#replay-button');
 // Fonction pour afficher une question basée sur l'index actuel
@@ -26,6 +28,7 @@ function loadQuestion() {
   });
   CheckAnswer();
 }
+
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
 boutonSuivant.addEventListener('click', () => {
   // Incrémenter l'index de la question
@@ -36,9 +39,11 @@ boutonSuivant.addEventListener('click', () => {
     loadQuestion();
   } else {
     // Si plus de questions, indiquer la fin du quiz
-    contenuQuestion.innerText = 'All done !';
-    
-    contenuOptions.innerHTML = 'Tu as obtenu ' + score + ' sur ' + quizVoyage.questions.length; // Effacer les options
+    contenuQuestion.innerText = '';
+    contenuOptions.innerHTML = '';
+    contenuFinal.innerHTML = `All done ! 
+    Tu as obtenu ${score} sur ${quizVoyage.questions.length} 
+    ${commentaireScore()}`
     boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
     restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame
   }
@@ -47,10 +52,11 @@ boutonSuivant.addEventListener('click', () => {
 loadQuestion();
 // Fonction pour réinitialiser le quiz
 restartGame.addEventListener('click', () => {
-    // TODO Réinitialiser l'index
+    // Réinitialiser l'index et score
     i = 0;
     score = 0
-    // TODO Cacher le bouton Rejouer et afficher le bouton Suivant
+    // Cacher le bouton Rejouer et afficher le bouton Suivant
+    contenuFinal.innerHTML = '';
     boutonSuivant.style.display = 'inline-block';
     restartGame.style.display = 'none';
   
@@ -88,6 +94,28 @@ restartGame.addEventListener('click', () => {
         console.log("Bonne réponse :", questionActuelle.correct_answer);
       });
     });
+  }
+  // Afficher une réponse différente selon le score obtenu
+  function commentaireScore() {
+  let text;
+  switch(score){
+    case 0 :
+      text = 'Aïe ! On dirait que ce sujet ne t’inspire vraiment pas… 🌀';
+      break;
+    case 1 :
+    case 2 :
+    case 3 :
+      text = 'Ce n’est pas mal ! Mais tu peux mieux faire 💪!';
+      break;
+    case 4 :
+    case 5 :
+    case 6 :
+      text = 'Bravo, on voit que tu maîtrises ce thème 😎 !';
+      break;
+    case 7 :
+      text = 'Incroyable ! Tu es incollable sur le sujet 🎊!';
+  }
+  return text
   }
 
   console.log(score, "sur", quizVoyage.questions.length);
