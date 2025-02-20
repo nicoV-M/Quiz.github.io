@@ -130,8 +130,24 @@ function CheckAnswer() {
       break;
     case 7 :
       text = 'Incroyable ! Tu es incollable sur le sujet 🎊!';
-  }
+      const duration = 5 * 1000; // 5 secondes
+      const animationEnd = Date.now() + duration;
+      const interval = setInterval(() => {
+        if (Date.now() > animationEnd) {
+          return clearInterval(interval);
+       }
+    confetti({
+    particleCount: 300,
+    spread: 500,
+    startVelocity: 50,
+    gravity: 0.5,
+    decay: 0.95,
+    scalar: 1.1,
+    origin: { x: Math.random(), y: Math.random() * 0.5 },
+  });
+}, 300);
+}
   return text
   }
-
+ 
 console.log(score, "sur", quizVoyage.questions.length);
