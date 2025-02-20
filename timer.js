@@ -11,4 +11,4 @@ timeLeft = 30;
         elem.innerHTML = timeLeft + ' seconds remaining';
         timeLeft--;
       }
-    }
+    }time
