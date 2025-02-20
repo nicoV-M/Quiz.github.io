@@ -54,9 +54,9 @@ boutonSuivant.addEventListener('click', () => {
     // Fin du quiz
     contenuQuestion.innerText = '';
     contenuOptions.innerHTML = '';
-    contenuFinal.innerHTML = `All done ! 
-    Tu as obtenu ${score} sur ${quizVoyage.questions.length} 
-    ${commentaireScore()}`
+    contenuFinal.innerHTML = `All done ! <br>
+    Tu as obtenu ${score} sur ${quizVoyage.questions.length}.
+    <br>${commentaireScore()}`
     boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
     restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame  
 
@@ -76,6 +76,7 @@ restartGame.addEventListener('click', () => {
   numberProgressElement.textContent = `${numberProgress} / ${totalQuestions}`;
   boutonSuivant.style.display = 'inline-block';
   restartGame.style.display = 'none';
+  contenuFinal.innerHTML = '';
   
   loadQuestion(); // Recharger la première question
 });
