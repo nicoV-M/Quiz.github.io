@@ -1,9 +1,10 @@
-import { quizVoyage } from './questions.js'; // Import des questions
+// Import des questions
+import { quizVoyage } from './questions.js';
 
 // Variables pour suivre l'état du quiz
 let i = 0;
 let score = 0;
-let numberProgress = 1;
+let numberProgress = 1; // Barre de progression
 const totalQuestions = quizVoyage.questions.length; // Nombre total de questions
 
 // Sélection des éléments HTML
@@ -32,20 +33,29 @@ function loadQuestion() {
   // Affichage dynamique de la progression : X / totalQuestions
   numberProgressElement.textContent = `${numberProgress} / ${totalQuestions}`;
   CheckAnswer();
+  timer();
 }
 
 // Ajouter un temps imparti pour répondre
+let timerId;
+
 function timer() {
-  // const element = document.getElementById("myTimer");   
-  // let id = 
-  setInterval(timeIsUp, 30000)
-  function timeIsUp() {
-    contenuQuestion.innerText = '';
-    contenuOptions.innerHTML = '';
-    contenuFinal.innerHTML = `Oups, temps écoulé ! <br> Tu veux recommencer ?`
-    boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
-    restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame
-  }
+  clearTimeout(timerId);
+  timerId = setTimeout(timeIsUp, 30000); // Modifier le timer pour effectuer des tests
+}
+
+function timeIsUp() {
+  stopTimer();
+  contenuQuestion.innerText = '';
+  contenuOptions.innerHTML = '';
+  contenuFinal.innerHTML = `Oups, temps écoulé ! <br> Tu veux recommencer ?`;
+  boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
+  restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame
+}
+
+  // Arreter le timer au clique d'une réponse
+  function stopTimer() {
+    clearTimeout(timerId);
   }
 
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
@@ -63,7 +73,6 @@ boutonSuivant.addEventListener('click', () => {
 
   if (i < quizVoyage.questions.length) {
     loadQuestion(); // Afficher la prochaine question
-    timer()
   } else {          // Fin du quiz
     contenuQuestion.innerText = '';
     contenuOptions.innerHTML = '';
@@ -101,6 +110,7 @@ function CheckAnswer() {
 
   buttons.forEach(button => {
     button.addEventListener('click', () => {
+      stopTimer();
       const questionActuelle = quizVoyage.questions[i];
       const correctAnswer = questionActuelle.correct_answer;
       buttons.forEach(btn => btn.setAttribute('disabled', '')); // Désactiver tous les boutons après réponse
