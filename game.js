@@ -33,7 +33,13 @@ function loadQuestion() {
 
   // Affichage dynamique de la progression : X / totalQuestions
   numberProgressElement.textContent = `${numberProgress} / ${totalQuestions}`;
-
+  // Ajout d'animation css sur la question et les reponses
+  contenuOptions.classList.remove("scale-in-center-normal");
+  contenuQuestion.classList.remove("scale-in-center-normal");
+  setTimeout(()=> {
+  contenuOptions.classList.add("scale-in-center-normal");
+  contenuQuestion.classList.add("scale-in-center-normal");
+}, 0);
   checkAnswer(); 
 }
 
