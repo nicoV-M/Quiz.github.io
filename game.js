@@ -36,10 +36,10 @@ function loadQuestion() {
   // Ajout d'animation css sur la question et les reponses
   contenuOptions.classList.remove("scale-in-center-normal");
   contenuQuestion.classList.remove("scale-in-center-normal");
-  setTimeout(()=> {
+  void contenuQuestion.offsetWidth;
   contenuOptions.classList.add("scale-in-center-normal");
   contenuQuestion.classList.add("scale-in-center-normal");
-}, 0);
+
   checkAnswer(); 
 }
 
