@@ -32,31 +32,51 @@ function loadQuestion() {
 
   // Affichage dynamique de la progression : X / totalQuestions
   numberProgressElement.textContent = `${numberProgress} / ${totalQuestions}`;
-  CheckAnswer();
-  timer();
+  checkAnswer(); 
 }
 
-// Ajouter un temps imparti pour répondre
-let timerId;
+let timeLeft = 10 ; // Initialisation du décompte à x secondes
+const timerElement = document.getElementById('timer'); // Référence à l'élément où le décompte sera affiché
+let interval = setInterval(updateTimer, 1000); // Définir un intervalle de mise à jour chaque seconde (1000 ms)
 
 function timer() {
-  clearTimeout(timerId);
-  timerId = setTimeout(timeIsUp, 30000); // Modifier le timer pour effectuer des tests
+  timeLeft = 10; // Réinitialiser le temps à 30 secondes
+  clearInterval(interval); // Arrêter l'intervalle précédent
+  interval = setInterval(updateTimer, 1000);
+  updateTimer();
 }
 
-function timeIsUp() {
-  stopTimer();
-  contenuQuestion.innerText = '';
-  contenuOptions.innerHTML = '';
-  contenuFinal.innerHTML = `Oups, temps écoulé ! <br> Tu veux recommencer ?`;
-  boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
-  restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame
-}
+// Fonction pour mettre à jour l'affichage du timer
+function updateTimer() {
+  // Calculer les minutes et les secondes
+  const minutes = Math.floor(timeLeft / 60);  // Calcul des minutes
+  const seconds = timeLeft % 60;              // Calcul des secondes restantes
 
-  // Arreter le timer au clique d'une réponse
-  function stopTimer() {
-    clearTimeout(timerId);
+  // Formater les minutes et secondes pour les afficher sous la forme "00:30"
+  timerElement.textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
+
+  timeLeft--;  // Décrémenter le temps restant
+
+  if (timeLeft < 0) {
+      stopTimer();  // Arrêter le décompte
+      contenuQuestion.innerText = '';
+      contenuOptions.innerHTML = '';
+      contenuFinal.innerHTML = `Oups, temps écoulé ! <br> Tu veux recommencer ?`;
+      boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
+      restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame
+      timerElement.textContent = "Temps écoulé !";  // Afficher un message quand le temps est écoulé
   }
+}
+
+// Fonction pour formater les nombres (ajoute un 0 devant si nécessaire)
+function formatTime(time) {
+  return time < 10 ? `0${time}` : time;
+}
+
+// Arreter le timer au clique d'une réponse
+function stopTimer() {
+  clearInterval(interval);
+}
 
 // Ajouter un écouteur d'événements pour le bouton "Suivant"
 boutonSuivant.addEventListener('click', () => {
@@ -73,6 +93,7 @@ boutonSuivant.addEventListener('click', () => {
 
   if (i < quizVoyage.questions.length) {
     loadQuestion(); // Afficher la prochaine question
+    timer(); // Lancer le timer
   } else {          // Fin du quiz
     contenuQuestion.innerText = '';
     contenuOptions.innerHTML = '';
@@ -101,10 +122,11 @@ restartGame.addEventListener('click', () => {
   contenuFinal.innerHTML = '';
   
   loadQuestion(); // Recharger la première question
+  timer(); // Lancer le timer
 });
 
 // Fonction pour vérifier la réponse
-function CheckAnswer() {
+function checkAnswer() {
   const buttons = document.querySelectorAll('.btn');
   boutonSuivant.setAttribute('disabled', ''); // Désactiver le bouton suivant jusqu'à ce que l'utilisateur ait répondu
 
