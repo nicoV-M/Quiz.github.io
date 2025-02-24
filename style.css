@@ -130,3 +130,10 @@ body {
     color: #5a0187;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+
+/* Animation lors de l'affichage de la question */
+@keyframes scale-in-center-normal {0% { transform: scale(0); opacity: 1; } 100% { transform: scale(1); opacity: 1;} }
+
+.scale-in-center-normal { 
+    animation: scale-in-center-normal 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s 1 normal both; 
+}
