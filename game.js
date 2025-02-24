@@ -4,6 +4,7 @@ import { quizVoyage } from './questions.js';
 // Variables pour suivre l'état du quiz
 let i = 0;
 let score = 0;
+let dernierScore;
 let numberProgress = 1; // Barre de progression
 const totalQuestions = quizVoyage.questions.length; // Nombre total de questions
 
@@ -38,7 +39,6 @@ function loadQuestion() {
 
 // Ajouter un temps imparti pour répondre
 let timerId;
-
 function timer() {
   clearTimeout(timerId);
   timerId = setTimeout(timeIsUp, 30000); // Modifier le timer pour effectuer des tests
@@ -76,9 +76,23 @@ boutonSuivant.addEventListener('click', () => {
   } else {          // Fin du quiz
     contenuQuestion.innerText = '';
     contenuOptions.innerHTML = '';
+
+     // Stocker le score final
+     dernierScore = score;
+     localStorage.setItem('dernierScore', score);
+
+     // ✅ Gérer le meilleur score
+    let meilleurScore = localStorage.getItem('meilleurScore') || 0;
+    if (score > meilleurScore) {
+      localStorage.setItem('meilleurScore', score);
+      meilleurScore = score; // Met à jour pour l'affichage
+    }
+    console.log("Fin du quiz atteinte");
+
     contenuFinal.innerHTML = `All done ! <br>
     Tu as obtenu ${score} sur ${quizVoyage.questions.length}.
-    <br>${commentaireScore()}`
+    <br>${commentaireScore(score, meilleurScore)}`;
+
     boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
     restartGame.style.display = 'inline-block'; // Afficher le bouton restartGame  
 
@@ -135,30 +149,31 @@ function CheckAnswer() {
 }
 
 // Afficher une réponse différente selon le score obtenu
-  function commentaireScore() {
+  function commentaireScore(score, meilleurScore) {
   let text;
-  switch(score){
-    case 0 :
-      text = 'Aïe ! On dirait que ce sujet ne t’inspire vraiment pas… 🌀';
-      break;
-    case 1 :
-    case 2 :
-    case 3 :
-      text = 'Ce n’est pas mal ! Mais tu peux mieux faire 💪!';
-      break;
-    case 4 :
-    case 5 :
-    case 6 :
-      text = 'Bravo, on voit que tu maîtrises ce thème 😎 !';
-      break;
-    case 7 :
-      text = 'Incroyable ! Tu es incollable sur le sujet 🎊!';
+  
+  if (score === 0) {
+    text = 'Aïe ! On dirait que ce sujet ne t’inspire vraiment pas… 🌀';
+  } else if (score <= 3) {
+    text = 'Ce n’est pas mal ! Mais tu peux mieux faire 💪!';
+  } else if (score <= 6) {
+    text = 'Bravo, on voit que tu maîtrises ce thème 😎 !';
+  } else if (score === 7) {
+    text = 'Incroyable ! Tu es incollable sur le sujet 🎊!';
+      lancerConfetti();
+  }
+      return `${text}<br><br>🎯 Dernier score : ${dernierScore} / ${quizVoyage.questions.length}<br>🏆 Meilleur score : ${meilleurScore} / ${quizVoyage.questions.length}`;
+    }
+
+    function lancerConfetti() {
       const duration = 5 * 1000; // 5 secondes
       const animationEnd = Date.now() + duration;
+
       const interval = setInterval(() => {
         if (Date.now() > animationEnd) {
           return clearInterval(interval);
        }
+
     confetti({
     particleCount: 300,
     spread: 500,
@@ -170,7 +185,5 @@ function CheckAnswer() {
   });
 }, 300);
 }
-  return text
-  }
  
 console.log(score, "sur", quizVoyage.questions.length);
