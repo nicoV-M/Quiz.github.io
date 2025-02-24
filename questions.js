@@ -3,10 +3,10 @@ export const quizVoyage = {
         {
           text: "Dans quel pays se trouve la tour Eiffel rouge et blanche ?",
           options: [
-            "New-York",
-            "Singapour",
+            "Etats-unis",
+            "Emirats arabes unis",
             "Japon",
-            "Los Angeles"
+            "Chine"
           ],
           correct_answer: "Japon"
         },
@@ -54,9 +54,9 @@ export const quizVoyage = {
             text: "Quel sport est le plus populaire au Japon ?",
             options:[
                 "Football",
-                "Hockey sur glace",
+                "Judo",
                 "Baseball",
-                "Basket-ball",
+                "Ping-Pong",
             ],
             correct_answer: "Baseball",
         },
