@@ -17,6 +17,18 @@ body {
     margin: 0 auto;
 }
 
+#quiz-header {
+    display : inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #874FFF;
+    font-weight: 700;
+}
+
+#logo-timer {
+    display : inline-flex;
+    align-items: center;
+}
 #progress-barre{
     display: flex;
     align-items: center;
@@ -51,7 +63,7 @@ body {
         /* font-family: "Inter", serif; */
         background-color: #ffffff; 
         color: black;
-        border: 3px solid gray;
+        border: 2px solid rgba(215, 215, 215, 0.635);
         border-radius: 20px ;
         padding: 0.2em 4em 0.2em 1em;
         margin-bottom: 0.5em;
