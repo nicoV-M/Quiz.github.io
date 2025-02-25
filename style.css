@@ -35,6 +35,32 @@ body {
     gap: 20px;
 }
 
+/* Style de base de la barre de progression */
+#barre {
+    width: 160px;
+    height: 9px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  /* Couleur de la partie remplie (Chrome, Safari, Edge) */
+  #barre::-webkit-progress-value {
+    background-color: #874FFF; /* Vert */
+    border-radius: 5px;
+  }
+  
+  /* Couleur de l’arrière-plan (Chrome, Safari, Edge) */
+  #barre::-webkit-progress-bar {
+    background-color: #ffffff; /* Gris clair */
+    border-radius: 5px;
+  }
+  
+  /* Couleur de la partie remplie (Firefox) */
+  #barre::-moz-progress-bar {
+    background-color: #874FFF; /* Vert */
+    border-radius: 5px;
+  }
+
 #quiz-container {
     display: flex;
     flex-direction: column;
