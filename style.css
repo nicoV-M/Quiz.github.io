@@ -2,6 +2,18 @@
     font-family: "Inter", serif;
 }
 
+:root {
+    --violet-strong : #874FFF;
+    --violet-medium : #a77eff;
+    --violet-light  : #DCCCFF;
+    --green-strong  : #2dc842;
+    --green-light   : #cbf2d0;
+    --red-strong    : #F24822;
+    --red-light     : #FFC7C2;
+    --grey-strong   : #5e5e5ea2;
+    --grey-light    : #d7d7d7a2;
+}
+
 body {
   /* background: linear-gradient(to right, #005aa7, #fffde4); */
   background-color: #ede5ff;
@@ -21,7 +33,7 @@ body {
     display : inline-flex;
     align-items: center;
     justify-content: space-between;
-    color: #874FFF;
+    color: var(--violet-strong);
     font-weight: 700;
 }
 
@@ -29,6 +41,7 @@ body {
     display : inline-flex;
     align-items: center;
 }
+
 #progress-barre{
     display: flex;
     align-items: center;
@@ -71,7 +84,8 @@ body {
     border-radius: 5px ;
     padding: 10% 10% 1em;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 12px 12px 1px var(--grey-strong) ;
+    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
 }
 
 #question-text {
@@ -89,7 +103,7 @@ body {
         /* font-family: "Inter", serif; */
         background-color: #ffffff; 
         color: black;
-        border: 2px solid rgba(215, 215, 215, 0.635);
+        border: 2px solid var(--grey-light);
         border-radius: 20px ;
         padding: 0.2em 4em 0.2em 1em;
         margin-bottom: 0.5em;
@@ -112,10 +126,10 @@ body {
   
 
     .btn:hover {
-        background-color: #b08dc2; 
-        border: 2px solid #5a0187;
+        background-color: var(--violet-light); 
+        border: 2px solid var(--violet-strong);
         opacity: 0.5;
-        color: #5a0187;
+        color: var(--violet-strong);
     }
 
     .btn:nth-child(1) { animation-delay: 0.1s; }
@@ -131,8 +145,8 @@ body {
         height: 2.5em;
         }
 
-#quiz-foot {
-    margin-top: 0.5em;
+#quiz-footer {
+    margin-top: 1.5em;
     justify-items: end;
 }
 
@@ -147,8 +161,8 @@ body {
 .button-container > button {
     font-weight: 500;
     background-color: #ffffff; 
-    color: #b08dc2;
-    border: 3px solid #b08dc2;
+    color: var(--violet-medium);
+    border: 2px solid var(--violet-medium);
     border-radius: 20px ;
     padding: 0.2em 1.5em 0.2em 1em;
     margin-bottom: 0.5em;
@@ -158,15 +172,15 @@ body {
     font-size: 1em;
     width: 100%; 
     transition-duration: 0.4s;
+    box-shadow: 6px 6px 1px var(--grey-strong) ;
     }
 
 .button-container > button:hover {
-    background-color: #b08dc2; 
+    background-color: var(--violet-light); 
     font-weight: 700;
-    border: 2px solid #5a0187;
-    opacity: 0.5;
-    color: #5a0187;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border: 2px solid var(--violet-strong);
+    color: var(--violet-strong);
+    box-shadow: 6px 6px 1px var(--grey-strong) ;
 }
 
 /* Animation lors de l'affichage de la question */
