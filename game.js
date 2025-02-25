@@ -65,6 +65,16 @@ function updateTimer() {
 
   timeLeft--;  // Décrémenter le temps restant
 
+  const svgTimer = document.querySelector('#svgTimer');
+
+window.onload = () => {
+  svgTimer.style.transform = 'rotate(180deg)';
+};
+
+if (timeLeft === 7) {
+  svgTimer.style.transform = 'rotate(0deg)';
+}
+
   if (timeLeft < 0) {
       stopTimer();  // Arrêter le décompte
       contenuQuestion.innerText = '';
@@ -97,7 +107,8 @@ function stopTimer() {
 boutonSuivant.addEventListener('click', () => {
   // Mise à jour de la barre de progression
   if (progressBarre) {
-    if (numberProgress < totalQuestions) { 
+    if (numberProgress < totalQuestions) {
+        svgTimer.style.transform = 'rotate(180deg)';
         progressBarre.value = Math.min(progressBarre.value + 10, progressBarre.max);
         numberProgress += 1;
     }
@@ -139,6 +150,7 @@ loadQuestion();
 
 // Fonction pour réinitialiser le quiz
 restartGame.addEventListener('click', () => {
+  svgTimer.style.transform = 'rotate(180deg)';
 
   i = 0;
   score = 0;

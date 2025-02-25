@@ -15,8 +15,7 @@
 }
 
 body {
-  /* background: linear-gradient(to right, #005aa7, #fffde4); */
-  background-color: #ede5ff;
+  background: linear-gradient(to right, #fffcdc, #fbd3e9, #fffcdc); 
   margin : 0 auto;
   padding: 10% ;
 }
@@ -29,6 +28,7 @@ body {
     margin: 0 auto;
     }
 
+
     #quiz-header {
         display : inline-flex;
         align-items: center;
@@ -37,16 +37,24 @@ body {
         font-weight: 700;
         }
 
+
+
         #logo-timer {
             display : inline-flex;
             align-items: center;
         }
+        
+        #svgTimer {
+            transform: rotate(180deg);
+            transition: transform 1s ease-in-out;
+         }
 
         #progress-barre{
             display: flex;
             align-items: center;
             gap: 20px;
         }
+
 
         /* Style de base de la barre de progression */
         #barre {
@@ -193,3 +201,4 @@ body {
 .scale-in-center-normal { 
     animation: scale-in-center-normal 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s 1 normal both; 
 }
+
