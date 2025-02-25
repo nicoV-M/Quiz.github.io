@@ -23,165 +23,169 @@ body {
 
 
 #quiz-main {
-    display: flex; /* pourquoi flex ? */
+    display: flex;
     flex-direction: column;
     width: 450px;
     margin: 0 auto;
-}
-
-#quiz-header {
-    display : inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--violet-strong);
-    font-weight: 700;
-}
-
-#logo-timer {
-    display : inline-flex;
-    align-items: center;
-}
-
-#progress-barre{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Style de base de la barre de progression */
-#barre {
-    width: 160px;
-    height: 9px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  /* Couleur de la partie remplie (Chrome, Safari, Edge) */
-  #barre::-webkit-progress-value {
-    background-color: #874FFF; /* Vert */
-    border-radius: 5px;
-  }
-  
-  /* Couleur de l’arrière-plan (Chrome, Safari, Edge) */
-  #barre::-webkit-progress-bar {
-    background-color: #ffffff; /* Gris clair */
-    border-radius: 5px;
-  }
-  
-  /* Couleur de la partie remplie (Firefox) */
-  #barre::-moz-progress-bar {
-    background-color: #874FFF; /* Vert */
-    border-radius: 5px;
-  }
-
-#quiz-container {
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
-    height: 220px;
-    width: 360px;
-    border: 3px solid black;
-    border-radius: 5px ;
-    padding: 10% 10% 1em;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 12px 12px 1px var(--grey-strong) ;
-    /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
-}
-
-#question-text {
-    padding-bottom: 1em;
-    display: block;
-    text-align: center;
-    font-weight: 700;
-    height: 2.5em;
-}
-
-    .btn {
-        /*display: flex;
-        flex-direction: column;
-        justify-content: space-between;*/
-        /* font-family: "Inter", serif; */
-        background-color: #ffffff; 
-        color: black;
-        border: 2px solid var(--grey-light);
-        border-radius: 20px ;
-        padding: 0.2em 4em 0.2em 1em;
-        margin-bottom: 0.5em;
-        text-align: left;
-        text-decoration: none;
-        display: block 1em; /* j'ai ajouté 1em, cela a donné le résultat voulu (bouton toute largeur), mais je ne sais pas pourquoi ! */
-        font-size: 1em;
-        width: 100%; 
-        transition-duration: 0.4s;
-        opacity: 0;
-        transition: transform 0.3s ease-out, background-color 0.4s ease; /* Transition de hover */
-        animation: scale-in-answer 0.4s ease-out forwards;  /* Animation scale */
     }
-    
-    /* Animation lors de l'affichage des reponses */
-    @keyframes scale-in-answer {
-        0% { transform: scale(0); opacity: 0; }
-        100% { transform: scale(1); opacity: 1; }
-  }
-  
 
-    .btn:hover {
-        background-color: var(--violet-light); 
-        border: 2px solid var(--violet-strong);
-        opacity: 0.5;
+    #quiz-header {
+        display : inline-flex;
+        align-items: center;
+        justify-content: space-between;
         color: var(--violet-strong);
-    }
-
-    .btn:nth-child(1) { animation-delay: 0.1s; }
-    .btn:nth-child(2) { animation-delay: 0.2s; }
-    .btn:nth-child(3) { animation-delay: 0.3s; }
-    .btn:nth-child(4) { animation-delay: 0.4s; }
-
-    #message-final {
-        padding-bottom: 1em;
-        display: block;
-        text-align: center;
         font-weight: 700;
-        height: 2.5em;
         }
 
-#quiz-footer {
-    margin-top: 1.5em;
-    justify-items: end;
-}
+        #logo-timer {
+            display : inline-flex;
+            align-items: center;
+        }
 
-/* #next-button {
-    justify-items: end;
-}
+        #progress-barre{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-#replay-button {
-    justify-items: center;
-} */
+        /* Style de base de la barre de progression */
+        #barre {
+            width: 160px;
+            height: 9px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* Couleur de la partie remplie (Chrome, Safari, Edge) */
+        #barre::-webkit-progress-value {
+            background-color: #874FFF; /* Vert */
+            border-radius: 5px;
+        }
+        
+        /* Couleur de l’arrière-plan (Chrome, Safari, Edge) */
+        #barre::-webkit-progress-bar {
+            background-color: #ffffff; /* Gris clair */
+            border-radius: 5px;
+        }
+        
+        /* Couleur de la partie remplie (Firefox) */
+        #barre::-moz-progress-bar {
+            background-color: #874FFF; /* Vert */
+            border-radius: 5px;
+        }
 
-.button-container > button {
-    font-weight: 500;
-    background-color: #ffffff; 
-    color: var(--violet-medium);
-    border: 2px solid var(--violet-medium);
-    border-radius: 20px ;
-    padding: 0.2em 1.5em 0.2em 1em;
-    margin-bottom: 0.5em;
-    text-align: left;
-    text-decoration: none;
-    display: block; 
-    font-size: 1em;
-    width: 100%; 
-    transition-duration: 0.4s;
-    box-shadow: 6px 6px 1px var(--grey-strong) ;
-    }
+    #quiz-container {
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+        height: 220px;
+        width: 360px;
+        border: 3px solid black;
+        border-radius: 5px ;
+        padding: 10% 10% 1em;
+        background-color: rgb(255, 255, 255);
+        box-shadow: 12px 12px 1px var(--grey-strong) ;
+        /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
+        }
 
-.button-container > button:hover {
-    background-color: var(--violet-light); 
-    font-weight: 700;
-    border: 2px solid var(--violet-strong);
-    color: var(--violet-strong);
-    box-shadow: 6px 6px 1px var(--grey-strong) ;
-}
+        #question-text {
+            padding-bottom: 1em;
+            display: block;
+            text-align: center;
+            font-weight: 700;
+            height: 2.5em;
+            }
+
+            .btn {
+                /*display: flex;
+                flex-direction: column;
+                justify-content: space-between;*/
+                /* font-family: "Inter", serif; */
+                background-color: #ffffff; 
+                color: black;
+                border: 2px solid var(--grey-light);
+                border-radius: 20px ;
+                padding: 0.2em 4em 0.2em 1em;
+                margin-bottom: 0.5em;
+                text-align: left;
+                text-decoration: none;
+                display: block 1em; /* j'ai ajouté 1em, cela a donné le résultat voulu (bouton toute largeur), mais je ne sais pas pourquoi ! */
+                font-size: 1em;
+                width: 100%; 
+                transition-duration: 0.4s;
+                opacity: 0;
+                transition: transform 0.3s ease-out, background-color 0.4s ease; /* Transition de hover */
+                animation: scale-in-answer 0.4s ease-out forwards;  /* Animation scale */
+            }
+            
+            /* Animation lors de l'affichage des reponses */
+            @keyframes scale-in-answer {
+                0% { transform: scale(0); opacity: 0; }
+                100% { transform: scale(1); opacity: 1; }
+            }
+        
+
+            .btn:hover {
+                background-color: var(--violet-light); 
+                border: 2px solid var(--violet-strong);
+                opacity: 0.5;
+                color: var(--violet-strong);
+            }
+
+            .btn:nth-child(1) { animation-delay: 0.1s; }
+            .btn:nth-child(2) { animation-delay: 0.2s; }
+            .btn:nth-child(3) { animation-delay: 0.3s; }
+            .btn:nth-child(4) { animation-delay: 0.4s; }
+
+            #message-final {
+                padding-bottom: 1em;
+                display: block;
+                text-align: center;
+                font-weight: 700;
+                height: 2.5em;
+            }
+
+    #quiz-footer {
+        margin-top: 1.5em;
+        }
+
+        .button-container {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1em;
+        }
+
+            .button-container > button {
+                font-weight: 500;
+                background-color: #ffffff; 
+                color: var(--violet-medium);
+                border: 2px solid var(--violet-medium);
+                border-radius: 20px ;
+                padding: 0.2em 1.5em 0.2em 1em;
+                margin-bottom: 0.5em;
+                text-justify: center;
+                text-decoration: none;
+                font-size: 1em;
+                width: 100px; 
+                transition-duration: 0.4s;
+                box-shadow: 6px 6px 1px var(--grey-strong) ;
+                }
+
+            .button-container > button:hover {
+                background-color: var(--violet-light); 
+                font-weight: 700;
+                border: 2px solid var(--violet-strong);
+                color: var(--violet-strong);
+                box-shadow: 6px 6px 1px var(--grey-strong) ;
+            }
+
+            .button-container > #next-button {
+                justify-self: end;
+            }
+    
+            .button-container > #replay-button {
+                justify-self: center;
+            }
 
 /* Animation lors de l'affichage de la question */
 @keyframes scale-in-center-normal {0% { transform: scale(0); opacity: 1; } 100% { transform: scale(1); opacity: 1;} }
