@@ -3,8 +3,7 @@
 }
 
 body {
-  /* background: linear-gradient(to right, #005aa7, #fffde4); */
-  background-color: #ede5ff;
+  background: linear-gradient(to right, #fffcdc, #fbd3e9, #fffcdc); 
   margin : 0 auto;
   padding: 10% ;
 }
