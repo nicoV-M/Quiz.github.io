@@ -40,6 +40,10 @@ body {
     display : inline-flex;
     align-items: center;
 }
+#svgTimer {
+    transform: rotate(180deg);
+    transition: transform 1s ease-in-out;
+}
 
 #progress-barre{
     display: flex;
@@ -57,19 +61,19 @@ body {
   
   /* Couleur de la partie remplie (Chrome, Safari, Edge) */
   #barre::-webkit-progress-value {
-    background-color: #874FFF; /* Vert */
+    background-color: #874FFF;
     border-radius: 5px;
   }
   
   /* Couleur de l’arrière-plan (Chrome, Safari, Edge) */
   #barre::-webkit-progress-bar {
-    background-color: #ffffff; /* Gris clair */
+    background-color: #ffffff; 
     border-radius: 5px;
   }
   
   /* Couleur de la partie remplie (Firefox) */
   #barre::-moz-progress-bar {
-    background-color: #874FFF; /* Vert */
+    background-color: #874FFF;
     border-radius: 5px;
   }
 
@@ -188,3 +192,4 @@ body {
 .scale-in-center-normal { 
     animation: scale-in-center-normal 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0s 1 normal both; 
 }
+
