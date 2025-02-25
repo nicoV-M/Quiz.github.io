@@ -126,7 +126,6 @@ boutonSuivant.addEventListener('click', () => {
     console.log("Fin du quiz atteinte");
 
     contenuFinal.innerHTML = `All done ! <br>
-    Tu as obtenu ${score} sur ${quizVoyage.questions.length}.
     <br>${commentaireScore(score, meilleurScore)}`;
 
     boutonSuivant.style.display = 'none'; // Cacher le bouton Suivant
@@ -205,7 +204,7 @@ function checkAnswer() {
     text = 'Incroyable ! Tu es incollable sur le sujet 🎊!';
       lancerConfetti();
   }
-      return `${text}<br><br>🎯 Dernier score : ${dernierScore} / ${quizVoyage.questions.length}<br>🏆 Meilleur score : ${meilleurScore} / ${quizVoyage.questions.length}`;
+      return `${text}<br><br>🎯 Dernier score : ${dernierScore} / ${quizVoyage.questions.length} 🎯<br>🏆 Meilleur score : ${meilleurScore} / ${quizVoyage.questions.length} 🏆`;
     }
 
     function lancerConfetti() {
