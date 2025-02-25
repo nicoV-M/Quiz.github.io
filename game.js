@@ -173,15 +173,15 @@ function checkAnswer() {
         button.style.color = "#66D575";
         score++;
       } else {
-        button.style.backgroundColor = "#FFC7C2"; // Mauvaise réponse en rouge
-        button.style.border = "2px solid #F24822";
-        button.style.color = "#F24822";
+        button.style.backgroundColor = "var(--red-light)"; // Mauvaise réponse en rouge
+        button.style.border = "2px solid var(--red-strong)";
+        button.style.color = "var(--red-strong)";
       }
       buttons.forEach(btn => {
         if(btn.textContent === correctAnswer){
-          btn.style.backgroundColor = "#CDF4D3"; 
-          btn.style.border = "2px solid #66D575";
-          btn.style.color = "#66D575";
+          btn.style.backgroundColor = "var(--green-light)"; 
+          btn.style.border = "2px solid var(--green-strong)";
+          btn.style.color = "var(--green-strong)";
         }
       })
       console.log("score", score, "sur", quizVoyage.questions.length);
