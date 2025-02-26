@@ -57,8 +57,8 @@ function timer() {
 // Fonction pour mettre à jour l'affichage du timer
 function updateTimer() {
   // Calculer les minutes et les secondes
-  const minutes = Math.floor(timeLeft / 60);  // Calcul des minutes 
-  const seconds = timeLeft % 60;              // Calcul des secondes restantes (modulo de timeLeft par 60)
+  const minutes = Math.floor(timeLeft / 60);  
+  const seconds = timeLeft % 60; 
 
   // Formater les minutes et secondes pour les afficher sous la forme "00:15"
   timerElement.textContent = `${formatTime(minutes)}:${formatTime(seconds)}`;
@@ -88,7 +88,6 @@ if (timeLeft === 7) {
 
 // Fonction pour formater les nombres (ajoute un 0 devant si nécessaire)
 function formatTime(time) {
-  //return time < 10 ? `0${time}` : time;
   let formattedTime 
   if (time < 10) {
     formattedTime = `0${time}`;
@@ -128,7 +127,7 @@ boutonSuivant.addEventListener('click', () => {
      dernierScore = score;
      localStorage.setItem('dernierScore', score);
 
-     // ✅ Gérer le meilleur score
+     // Gérer le meilleur score
     let meilleurScore = localStorage.getItem('meilleurScore') || 0;
     if (score > meilleurScore) {
       localStorage.setItem('meilleurScore', score);
@@ -195,9 +194,6 @@ function checkAnswer() {
           btn.style.color = "var(--green-strong)";
         }
       })
-      console.log("score", score, "sur", quizVoyage.questions.length);
-      console.log("Réponse choisie :", button.textContent);
-      console.log("Bonne réponse :", questionActuelle.correct_answer);
     });
   });
 }
@@ -239,5 +235,3 @@ function checkAnswer() {
   });
 }, 300);
 }
- 
-console.log(score, "sur", quizVoyage.questions.length);
